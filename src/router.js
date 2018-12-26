@@ -36,7 +36,6 @@ const router = new Router({
 // let deep = 0;
 router.beforeEach((to, from, next) => {
     NProgress.start();
-    console.log(getToken())
     if (getToken()) {
         if (to.path === '/login') {
             next({path: '/'});
@@ -49,7 +48,6 @@ router.beforeEach((to, from, next) => {
                 //     next({path: '/login'});
                 //     deep = 0;
                 // }
-                console.log(to, from);
                 let data = res.data;
                 if (data.code == 1000) {
                     let urls = [];
@@ -85,7 +83,6 @@ router.beforeEach((to, from, next) => {
                     cleanToken();
                     next(`/login?redirect=${to.path}`)
                 }
-                console.log(111, res)
                 next();
             })
         }

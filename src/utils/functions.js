@@ -1,7 +1,6 @@
 export function menutree(list) {
     let res = [];
     list.forEach((item) => {
-        console.log(item);
         if (item.parentId == 0) {
             let item1 = item;
             item1.child = [];

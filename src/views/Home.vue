@@ -157,8 +157,7 @@
             this.charts_pie();
         },
         methods: {
-            click(params) {
-                console.log(params);
+            click() {
             },
             charts_polar() {
                 var data = [];
@@ -193,8 +192,6 @@
                 };
             },
             charts_bar() {
-                app.title = '极坐标系下的堆叠柱状图';
-
                 var data = [
                     [5000, 10000, 6785.71],
                     [4000, 10000, 6825],
@@ -277,7 +274,7 @@
                         z: 10
                     }, {
                         type: 'bar',
-                        data: data.map(function (d) {
+                        data: data.map(function () {
                             return barHeight * 2
                         }),
                         coordinateSystem: 'polar',
@@ -286,15 +283,12 @@
                         barGap: '-100%',
                         z: 10
                     }],
-                    legend: {
-                        show: true,
-                        data: ['A', 'B', 'C']
-                    }
+
                 };
                 this.option2 = option;
             },
             charts_pie() {
-               let  option = {
+                let option = {
                     tooltip: {
                         trigger: 'item',
                         formatter: "{a} <br/>{b} : {c} ({d}%)"
@@ -344,7 +338,7 @@
 
                             animationType: 'scale',
                             animationEasing: 'elasticOut',
-                            animationDelay: function (idx) {
+                            animationDelay: function () {
                                 return Math.random() * 200;
                             }
                         }

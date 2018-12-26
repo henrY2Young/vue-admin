@@ -110,7 +110,6 @@
                 let self = this;
                 permission.getRouter().then(res => {
                     let response = res.data;
-                    console.log(response)
                     if (response.code == 1000) {
                         self.routerList = response.data;
 
@@ -171,13 +170,11 @@
                 })
             },
             handleAdd() {
-                console.log(this.routerForm)
                 let self = this;
                 this.isEdit = false;
                 permission.addRouter(self.routerForm).then(res => {
                     let response = res.data;
                     if (response.code == 1000) {
-                        console.log(response.data);
                         self.routerForm = {
                             id: '',
                             name: '',

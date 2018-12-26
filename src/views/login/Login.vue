@@ -65,13 +65,10 @@
                         this.$store.dispatch('LOGIN', UserInfo);
                         PermissionAPI.getMenuList().then(res => {
                             let response = res.data;
-                            console.log(response);
                             if (response.code == 1000) {
                                 let data1 = response.data.menuList;
                                 self.menuList = menutree(data1);
                                 this.$store.dispatch('INIT_MENU',self.menuList);
-                                console.log(self.menuList)
-                            } else {
                             }
                             this.$router.push({name:'index'});
                         })
@@ -83,9 +80,6 @@
                         });
                         return;
                     }
-                    console.log(res)
-                }).catch(err => {
-                    console.log(err)
                 })
             }
         }

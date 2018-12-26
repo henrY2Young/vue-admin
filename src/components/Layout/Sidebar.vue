@@ -31,8 +31,7 @@
 </template>
 
 <script>
-    import {menutree, decodeMenuTree} from "../../utils/functions";
-    import PermissionAPI from '../../api/perssion';
+    import {decodeMenuTree} from "../../utils/functions";
 
     export default {
         name: "sidebar",
@@ -68,9 +67,8 @@
                         }
                     }
                 }
-                this.$store.dispatch('set_breadcrumb',result);
-                this.$router.push({path:key});
-                console.log(key, keyPath,result)
+                this.$store.dispatch('set_breadcrumb', result);
+                this.$router.push({path: key});
             },
 
         }

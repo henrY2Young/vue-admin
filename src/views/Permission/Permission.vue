@@ -106,14 +106,12 @@
                 let self = this;
                 permission.getPermissionList().then(res => {
                     let response = res.data;
-                    console.log(response)
                     if (response.code == 1000) {
                         self.permissionList = response.data;
                     }
                 })
             },
             selectchange() {
-                console.log(this.routerList)
             },
             getRouterList() {
                 let self = this;
@@ -121,7 +119,7 @@
                     let response = res.data;
                     if (response.code == 1000) {
                         let data = response.data;
-                        data.forEach((item, index) => {
+                        data.forEach((item) => {
                             let item1 = {
                                 value: item.id,
                                 label: item.name
@@ -151,7 +149,6 @@
                 let self = this;
                 let params = self.permissionForm;
                 params.permission = self.permissionForm.permission.toString()
-                console.log(params)
                 permission.updatePremission(params).then(res => {
                     let response = res.data;
                     if (response.code == 1000) {
@@ -171,11 +168,9 @@
                 this.isEdit = false;
                 let params = self.permissionForm
                 params.permission = self.permissionForm.permission.toString()
-                console.log(params)
                 permission.addPermission(params).then(res => {
                     let response = res.data;
                     if (response.code == 1000) {
-                        console.log(response.data);
                         self.$message(
                             {
                                 type: 'success',
